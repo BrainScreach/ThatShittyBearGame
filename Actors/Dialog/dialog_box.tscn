@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://ddksvpw4qece4"]
+
+[ext_resource type="Script" uid="uid://dhp24s122rehk" path="res://Scripts/Dialog/DialogBox.cs" id="1_17boh"]
+[ext_resource type="Texture2D" uid="uid://cidyq000sjgdr" path="res://Textures/DialogBox/ShitBorder.png" id="1_qrjdi"]
+[ext_resource type="AudioStream" uid="uid://b5lqjuvfpdlsr" path="res://sfx/Fart-1.mp3" id="3_tjhkc"]
+[ext_resource type="AudioStream" uid="uid://j0pfp0se140s" path="res://sfx/Fart-2.mp3" id="4_lcfv8"]
+[ext_resource type="AudioStream" uid="uid://b225nwyo6gc6c" path="res://sfx/Fart-7.mp3" id="5_tmcig"]
+[ext_resource type="AudioStream" uid="uid://dqdnl8vs1fpis" path="res://sfx/Fart-6.mp3" id="6_jrrx1"]
+[ext_resource type="AudioStream" uid="uid://bmx4gsnxfded6" path="res://sfx/Fart-8.mp3" id="7_fp8e7"]
+[ext_resource type="AudioStream" uid="uid://dngnn5xq3kt4e" path="res://sfx/Fart-11.mp3" id="8_8eiy5"]
+[ext_resource type="AudioStream" uid="uid://procnv71rqib" path="res://sfx/Fart-12.mp3" id="9_lyjv6"]
+
+[sub_resource type="Theme" id="Theme_17boh"]
+
+[sub_resource type="SystemFont" id="SystemFont_17boh"]
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_a61gc"]
+font = SubResource("SystemFont_17boh")
+font_size = 42
+font_color = Color(0, 0, 0, 1)
+outline_size = 3
+shadow_size = 2
+shadow_color = Color(0.32050446, 0, 0.0005268753, 0.7490196)
+shadow_offset = Vector2(3, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_ok2iy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qrf1a"]
+line_spacing = 4.0
+paragraph_spacing = 8.0
+font = SubResource("FontVariation_ok2iy")
+font_size = 42
+font_color = Color(0.71, 0.4402, 0.28399998, 1)
+outline_size = 3
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_plxvy"]
+shuffle = true
+fade_time = 0.0
+stream_count = 7
+stream_0 = ExtResource("3_tjhkc")
+stream_1 = ExtResource("4_lcfv8")
+stream_2 = ExtResource("5_tmcig")
+stream_3 = ExtResource("6_jrrx1")
+stream_4 = ExtResource("7_fp8e7")
+stream_5 = ExtResource("8_8eiy5")
+stream_6 = ExtResource("9_lyjv6")
+
+[node name="DialogBox" type="Control" unique_id=644605369 node_paths=PackedStringArray("CharacterName", "DialogText", "TextTimer", "AppearTimer", "SoundPlayer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 10
+script = ExtResource("1_17boh")
+CharacterName = NodePath("MarginContainer/TextureRect/CharacterName")
+DialogText = NodePath("MarginContainer/TextureRect/DialogBox")
+TextTimer = NodePath("TextLetterTimer")
+AppearTimer = NodePath("AppearTimer")
+SoundPlayer = NodePath("AudioStreamPlayer2D")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1299191314]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -1276.0
+offset_top = -594.0
+offset_right = 1276.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_17boh")
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 40
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=1548134282]
+layout_mode = 2
+texture = ExtResource("1_qrjdi")
+expand_mode = 2
+
+[node name="CharacterName" type="Label" parent="MarginContainer/TextureRect" unique_id=103314361]
+layout_mode = 0
+offset_left = 1460.0
+offset_top = 5.0
+offset_right = 1846.0
+offset_bottom = 75.0
+text = "Diaper Wolf"
+label_settings = SubResource("LabelSettings_a61gc")
+vertical_alignment = 1
+uppercase = true
+
+[node name="DialogBox" type="Label" parent="MarginContainer/TextureRect" unique_id=981598155]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 80.0
+offset_right = 2240.0
+offset_bottom = 480.0
+text = "You took you shit for a last time!
+Bear - the most shitty shitter"
+label_settings = SubResource("LabelSettings_qrf1a")
+autowrap_mode = 3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=639595072]
+stream = SubResource("AudioStreamPlaylist_plxvy")
+max_distance = 1000000.0
+max_polyphony = 4
+playback_type = 2
+
+[node name="TextLetterTimer" type="Timer" parent="." unique_id=1160028903]
+wait_time = 0.1
+
+[node name="AppearTimer" type="Timer" parent="." unique_id=389966775]
+wait_time = 0.05

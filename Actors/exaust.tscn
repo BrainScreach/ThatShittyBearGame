@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://b346sxci23bj5"]
+
+[ext_resource type="Script" uid="uid://bisoqmncgx8r0" path="res://Scripts/Exaust.cs" id="1_kndds"]
+[ext_resource type="Texture2D" uid="uid://cuprjn0ed2dpc" path="res://Textures/shitP.png" id="2_g0bl4"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_do63w"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_ea5m1"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, -0.30522084), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_nle8d"]
+curve = SubResource("Curve_ea5m1")
+
+[sub_resource type="Curve" id="Curve_wj4md"]
+_data = [Vector2(0, 0.2974506), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jjkr8"]
+curve = SubResource("Curve_wj4md")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1nx5u"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 15.0
+angle_min = 180.00002
+angle_max = 180.00002
+inherit_velocity_ratio = 1.0
+spread = 20.0
+initial_velocity_min = 61.77
+initial_velocity_max = 292.08
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = -1.6093254e-05
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 300.0
+linear_accel_max = 1000.0
+linear_accel_curve = SubResource("CurveTexture_nle8d")
+radial_accel_min = -32.82
+radial_accel_max = 17.179996
+scale_min = 0.79999995
+scale_max = 1.1999999
+scale_curve = SubResource("CurveTexture_jjkr8")
+anim_offset_max = 1.0
+
+[node name="Exaust" type="Node2D" unique_id=1678234877 node_paths=PackedStringArray("Particles")]
+script = ExtResource("1_kndds")
+Particles = NodePath("GPUParticles2D")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=2098027518]
+material = SubResource("CanvasItemMaterial_do63w")
+emitting = false
+amount = 500
+texture = ExtResource("2_g0bl4")
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_1nx5u")

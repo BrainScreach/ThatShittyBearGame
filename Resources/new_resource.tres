@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ControlScriptManager" format=3 uid="uid://61jly3syhowb"]
+
+[ext_resource type="Script" uid="uid://wr1hki5jkp10" path="res://Scripts/Universal/UniversalMenuScripts/ControlScriptManager.cs" id="1_8pcf5"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_fhmnv"]
+
+[resource]
+script = ExtResource("1_8pcf5")
+Scripts = Array[SubResource("CSharpScript_fhmnv")]([null])
+metadata/_custom_type_script = "uid://wr1hki5jkp10"

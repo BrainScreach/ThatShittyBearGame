@@ -1,0 +1,10 @@
+[gd_resource type="Theme" format=3 uid="uid://bcyryaatiagx5"]
+
+[ext_resource type="FontFile" uid="uid://dn7qsyipaa7hd" path="res://Fonts/Turds-vppD.ttf" id="1_qt3ol"]
+
+[resource]
+Label/colors/font_color = Color(0.09803922, 0.7372549, 0.09803922, 1)
+Label/colors/font_outline_color = Color(0, 0.48785627, 0, 1)
+Label/colors/font_shadow_color = Color(0.6627451, 1, 0.63529414, 1)
+Label/font_sizes/font_size = 72
+Label/fonts/font = ExtResource("1_qt3ol")

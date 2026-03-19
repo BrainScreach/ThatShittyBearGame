@@ -1,0 +1,10 @@
+[gd_resource type="Theme" format=3 uid="uid://bkf7qy42hmo6l"]
+
+[ext_resource type="FontFile" uid="uid://d27bojs7v5tgk" path="res://Fonts/PaperForYourAss-m3O2.ttf" id="1_5vlk8"]
+
+[resource]
+default_font = ExtResource("1_5vlk8")
+Button/colors/font_color = Color(0.8569985, 0.41614923, 0.36913696, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 4
+Button/font_sizes/font_size = 82

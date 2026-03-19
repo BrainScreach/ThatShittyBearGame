@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://cxewdl4g8e868"]
+
+[ext_resource type="Texture2D" uid="uid://b8m6gywlpiqj6" path="res://Textures/start_clifftrees.png" id="1_7lila"]
+[ext_resource type="Script" uid="uid://c3trouvxotnk6" path="res://Scripts/Intro/IntroScript.cs" id="1_kcdfs"]
+[ext_resource type="Texture2D" uid="uid://cisanyd2lf5y2" path="res://Textures/toilet_closed.png" id="2_wt8m5"]
+[ext_resource type="Texture2D" uid="uid://bjpuhmanc6q76" path="res://Textures/toilet_opened.png" id="3_a5sms"]
+[ext_resource type="Texture2D" uid="uid://dxju1qm3wy81x" path="res://Textures/start_bear.png" id="4_ax6gp"]
+[ext_resource type="Script" uid="uid://dm8ti7t7tcl5d" path="res://Scripts/Intro/ToiletScript.cs" id="5_ax6gp"]
+[ext_resource type="AudioStream" uid="uid://ba0wmudunwp2d" path="res://sfx/Engine-6000.mp3" id="5_vv25d"]
+[ext_resource type="AudioStream" uid="uid://dylmely3y8vst" path="res://sfx/Loud-explosion-425457.mp3" id="6_066ph"]
+[ext_resource type="AudioStream" uid="uid://cfn84rjyxqy6w" path="res://sfx/wood_door_close.mp3" id="6_lgcme"]
+[ext_resource type="PackedScene" uid="uid://8rhas5x74r34" path="res://Actors/Universal/trigger_sound_node.tscn" id="7_ax6gp"]
+[ext_resource type="AudioStream" uid="uid://djejabfbs0u83" path="res://sfx/tourettes-guy-oh-shit.mp3" id="7_kcdfs"]
+[ext_resource type="SpriteFrames" uid="uid://pjceoc4lpylb" path="res://Textures/Animations/explosion-boom.gif" id="8_bbdyv"]
+[ext_resource type="Script" uid="uid://cp64y3ynevtyl" path="res://Scripts/Intro/IntroBearScript.cs" id="11_vv25d"]
+[ext_resource type="AudioStream" uid="uid://86x54v3qmoe6" path="res://sfx/Fart-4.mp3" id="14_uh68c"]
+[ext_resource type="AudioStream" uid="uid://ddl3wkqpgktq2" path="res://sfx/Fart-5.mp3" id="15_m8mx4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkog1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fqyfn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wt8m5")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_a5sms")
+}],
+"loop": true,
+"name": &"opened",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqyfn"]
+size = Vector2(192.5, 658)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lgcme"]
+radius = 215.71411
+height = 831.42865
+
+[node name="Start_Cliff" type="Node2D" unique_id=1025713442 node_paths=PackedStringArray("BearMain", "ToiletScript")]
+script = ExtResource("1_kcdfs")
+BearMain = NodePath("BearArea")
+ToiletScript = NodePath("Toilet")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=531661452]
+color = Color(0.3753439, 0.13850433, 0.06584038, 1)
+polygon = PackedVector2Array(-1950, 555, 1684, 519, 1250, 752, 1194, 899, 1159, 1126, 1159, 1682, 1414, 2426, -2589, 2426, -2690, 603)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=365975777]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1893422247]
+shape = SubResource("RectangleShape2D_qkog1")
+
+[node name="Trees" type="Sprite2D" parent="." unique_id=1837732891]
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("1_7lila")
+
+[node name="Toilet" type="Node2D" parent="." unique_id=1848560162 node_paths=PackedStringArray("ToiletAnim", "ExplosionAnim", "SoundDoor", "SoundScream", "SoundRumble", "SoundExplosion")]
+position = Vector2(1627.35, -33)
+script = ExtResource("5_ax6gp")
+ToiletAnim = NodePath("AnimatedSprite2D")
+ExplosionAnim = NodePath("AnimatedSprite2D2")
+SoundDoor = NodePath("AudioDoorClose")
+SoundScream = NodePath("AudioScream")
+SoundRumble = NodePath("AudioRumbling")
+SoundExplosion = NodePath("AudioExplosion")
+
+[node name="AudioScream" type="AudioStreamPlayer2D" parent="Toilet" unique_id=232113346]
+stream = ExtResource("7_kcdfs")
+
+[node name="AudioRumbling" type="AudioStreamPlayer2D" parent="Toilet" unique_id=107555610]
+stream = ExtResource("5_vv25d")
+volume_db = -20.029
+pitch_scale = 0.5
+parameters/looping = true
+
+[node name="AudioExplosion" type="AudioStreamPlayer2D" parent="Toilet" unique_id=1250190890]
+stream = ExtResource("6_066ph")
+volume_db = -15.294
+
+[node name="AudioDoorClose" type="AudioStreamPlayer2D" parent="Toilet" unique_id=155516306]
+stream = ExtResource("6_lgcme")
+volume_db = 6.118
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Toilet" unique_id=142123171]
+sprite_frames = SubResource("SpriteFrames_fqyfn")
+animation = &"opened"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Toilet" unique_id=13243403]
+visible = false
+position = Vector2(-106.34999, 207)
+scale = Vector2(10.073349, 8.924426)
+sprite_frames = ExtResource("8_bbdyv")
+animation = &"gif"
+
+[node name="ToiletArea" type="Area2D" parent="Toilet" unique_id=1011777432]
+position = Vector2(0, 3.8146973e-06)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Toilet/ToiletArea" unique_id=757448629]
+position = Vector2(144, 43)
+shape = SubResource("RectangleShape2D_fqyfn")
+
+[node name="BearArea" type="Area2D" parent="." unique_id=174539407]
+position = Vector2(-1677.9999, 64.99999)
+scale = Vector2(0.7, 0.7)
+script = ExtResource("11_vv25d")
+
+[node name="Sprite2D" type="Sprite2D" parent="BearArea" unique_id=649128412]
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("4_ax6gp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BearArea" unique_id=1133025456]
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CapsuleShape2D_lgcme")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=945878965]
+enabled = false
+zoom = Vector2(0.5, 0.5)
+
+[node name="TriggerSoundNode" parent="." unique_id=1971821182 instance=ExtResource("7_ax6gp")]
+position = Vector2(-1174, 204)
+AudioStream = ExtResource("14_uh68c")
+
+[node name="TriggerSoundNode2" parent="." unique_id=1119746203 instance=ExtResource("7_ax6gp")]
+position = Vector2(-157, 179)
+AudioStream = ExtResource("15_m8mx4")
+
+[connection signal="area_entered" from="Toilet/ToiletArea" to="Toilet" method="_on_bear_area_area_entered"]
+[connection signal="area_entered" from="BearArea" to="BearArea" method="_on_area_entered"]

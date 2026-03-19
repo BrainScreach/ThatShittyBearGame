@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://dkwvp5thsx0c5"]
+
+[ext_resource type="Script" uid="uid://cee6dstl0fhay" path="res://Scripts/Menu/MainMenu.cs" id="1_xi8qg"]
+[ext_resource type="Theme" uid="uid://dbcggbhvi2nfp" path="res://Theme/MainLabel.tres" id="2_xi8qg"]
+[ext_resource type="Theme" uid="uid://dyabod5uxrn02" path="res://Theme/StyleBoxButtonMainMenu.res" id="3_xi8qg"]
+[ext_resource type="Texture2D" uid="uid://co4qbneach3rx" path="res://Textures/steam_icon.png" id="4_m0jc3"]
+[ext_resource type="Texture2D" uid="uid://kyp61qmmfitr" path="res://Textures/X_icon.png" id="5_m8136"]
+[ext_resource type="Script" uid="uid://cdy76dfnwnehw" path="res://Scripts/Universal/MenuUniversalScript.cs" id="6_nt7rw"]
+[ext_resource type="Script" uid="uid://c8ih0mwm2nrmp" path="res://Scripts/Universal/UniversalMenuScripts/ControlScriptBit.cs" id="7_2j87w"]
+[ext_resource type="Texture2D" uid="uid://be4qn0ecaau0c" path="res://Textures/Menus/pngegg.png" id="7_8wcuk"]
+[ext_resource type="Script" uid="uid://ce8l8ns18u4he" path="res://Scripts/Universal/UniversalMenuScripts/MoveRelativeControlScript.cs" id="8_dk7uw"]
+[ext_resource type="Script" uid="uid://cuxybu8iaj5fx" path="res://Scripts/Universal/UniversalMenuScripts/PlaySoundScript.cs" id="9_dk7uw"]
+[ext_resource type="Script" uid="uid://wr1hki5jkp10" path="res://Scripts/Universal/UniversalMenuScripts/ControlScriptManager.cs" id="10_703yh"]
+[ext_resource type="AudioStream" uid="uid://bpheo3opgsjo6" path="res://sfx/Gabe_vl1.mp3" id="12_dk7uw"]
+
+[sub_resource type="Resource" id="Resource_xielr"]
+script = ExtResource("8_dk7uw")
+RelativePosition = Vector2(0, -500)
+Speed = 200.0
+
+[sub_resource type="Resource" id="Resource_h26y1"]
+script = ExtResource("9_dk7uw")
+SoundPlayerName = "GabeSP"
+metadata/_custom_type_script = "uid://cuxybu8iaj5fx"
+
+[sub_resource type="Resource" id="Resource_2im6t"]
+script = ExtResource("8_dk7uw")
+RelativePosition = Vector2(0, 500)
+Speed = 200.0
+
+[sub_resource type="Resource" id="Resource_r85gk"]
+script = ExtResource("10_703yh")
+Scripts = Array[ExtResource("7_2j87w")]([SubResource("Resource_xielr"), SubResource("Resource_h26y1"), SubResource("Resource_2im6t")])
+metadata/_custom_type_script = "uid://wr1hki5jkp10"
+
+[node name="MainMenu" type="Control" unique_id=836493818 node_paths=PackedStringArray("SteamMemeScript")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xi8qg")
+SteamMemeScript = NodePath("Memes/Gabe")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2078670925]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -311.5
+offset_top = -446.5
+offset_right = 311.5
+offset_bottom = 446.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer" unique_id=14009331]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/GridContainer" unique_id=1941502467]
+layout_mode = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 240
+
+[node name="Label" type="Label" parent="CenterContainer/GridContainer/MarginContainer" unique_id=1767151714]
+layout_mode = 2
+theme = ExtResource("2_xi8qg")
+text = "Stupid BEAR who took a 
+diarhea dump 
+in the woods"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/GridContainer" unique_id=525734109]
+layout_mode = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_right = 120
+
+[node name="MainMenuBox" type="BoxContainer" parent="CenterContainer/GridContainer/MarginContainer2" unique_id=1656178363]
+layout_mode = 2
+theme_override_constants/separation = 32
+vertical = true
+
+[node name="StartGameButton" type="Button" parent="CenterContainer/GridContainer/MarginContainer2/MainMenuBox" unique_id=1892377562]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+theme = ExtResource("3_xi8qg")
+text = "TAKE A DUMP"
+
+[node name="OptionsButton" type="Button" parent="CenterContainer/GridContainer/MarginContainer2/MainMenuBox" unique_id=1035513318]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+theme = ExtResource("3_xi8qg")
+text = "HOW TO POOP"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/GridContainer/MarginContainer2/MainMenuBox" unique_id=398409717]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+theme = ExtResource("3_xi8qg")
+text = "FLUSH
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=989267525]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -472.0
+offset_top = -252.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+theme_override_constants/margin_left = 26
+theme_override_constants/margin_top = 26
+theme_override_constants/margin_right = 26
+theme_override_constants/margin_bottom = 26
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1832024729]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="SteamIcon" type="TextureButton" parent="MarginContainer/HBoxContainer" unique_id=595716001]
+layout_mode = 2
+texture_normal = ExtResource("4_m0jc3")
+
+[node name="XIcon" type="TextureButton" parent="MarginContainer/HBoxContainer" unique_id=1506164666]
+layout_mode = 2
+texture_normal = ExtResource("5_m8136")
+
+[node name="Memes" type="Control" parent="." unique_id=1862343368]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Gabe" type="Control" parent="Memes" unique_id=1610738767]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("6_nt7rw")
+ScriptManager = SubResource("Resource_r85gk")
+
+[node name="TextureRect" type="TextureRect" parent="Memes/Gabe" unique_id=146124656]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -600.0
+offset_bottom = 600.0
+grow_horizontal = 0
+texture = ExtResource("7_8wcuk")
+
+[node name="GabeSP" type="AudioStreamPlayer2D" parent="Memes/Gabe" unique_id=241205440]
+stream = ExtResource("12_dk7uw")
+max_distance = 10000.0
+
+[connection signal="pressed" from="CenterContainer/GridContainer/MarginContainer2/MainMenuBox/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/MarginContainer2/MainMenuBox/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/MarginContainer2/MainMenuBox/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/SteamIcon" to="." method="_on_steam_icon_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/XIcon" to="." method="_on_x_icon_pressed"]

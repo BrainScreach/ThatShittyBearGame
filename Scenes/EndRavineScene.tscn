@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://bflppxr1ipcve"]
+
+[ext_resource type="Script" uid="uid://el0ycpvm38ot" path="res://Scripts/EndRavineScene.cs" id="1_xpfra"]
+[ext_resource type="Texture2D" uid="uid://dg12mlq47yjac" path="res://Textures/EndRavine/EndTreeesBackground.png" id="2_ihsmp"]
+[ext_resource type="Texture2D" uid="uid://ct35ie8lsjioj" path="res://Textures/EndRavine/End_wolfden.png" id="3_jscah"]
+[ext_resource type="Texture2D" uid="uid://dok5fdw5ceqw2" path="res://Textures/leaf_poop.png" id="4_tftkq"]
+[ext_resource type="Texture2D" uid="uid://wm8jpeerd6o2" path="res://Textures/mine_poop.png" id="5_y3on5"]
+[ext_resource type="Texture2D" uid="uid://dnh06pptbiogl" path="res://Textures/mine_exploded.png" id="6_s0snq"]
+[ext_resource type="Texture2D" uid="uid://ubldrhkvswb3" path="res://Textures/leaft_poop_3.png" id="7_mkrd6"]
+[ext_resource type="Texture2D" uid="uid://p8wia0najyfm" path="res://Textures/leaf_poop_2.png" id="8_wdygd"]
+[ext_resource type="PackedScene" uid="uid://ddksvpw4qece4" path="res://Actors/Dialog/dialog_box.tscn" id="9_ihsmp"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xpfra"]
+rough = true
+bounce = 1.0
+absorbent = true
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ihsmp"]
+friction = 0.0
+bounce = 1.0
+absorbent = true
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ihsmp"]
+radius = 10.999939
+height = 74.8573
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jscah"]
+rough = true
+bounce = 1.0
+absorbent = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tftkq"]
+size = Vector2(17.133, 1000)
+
+[node name="EndRavineScene" type="Node2D" unique_id=1858544834 node_paths=PackedStringArray("ActorEnteredArea", "DialogBox")]
+z_index = -4
+script = ExtResource("1_xpfra")
+ActorEnteredArea = NodePath("Area2D")
+DialogBox = NodePath("CanvasLayer/DialogBox")
+
+[node name="EndTreeesBackground" type="Sprite2D" parent="." unique_id=2098400766]
+modulate = Color(0.6542321, 0.6542321, 0.654232, 0.6392157)
+position = Vector2(4197, -648.5)
+texture = ExtResource("2_ihsmp")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1669493879]
+position = Vector2(3606, -1267)
+color = Color(0.35468382, 0.1429669, 0.07412479, 1)
+polygon = PackedVector2Array(-3630, 1239.5, 2564, 1237, 2576, 2531, -3627, 2604.5)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Polygon2D" unique_id=1350126404]
+physics_material_override = SubResource("PhysicsMaterial_xpfra")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Polygon2D/StaticBody2D" unique_id=1763496268]
+polygon = PackedVector2Array(950, 1270, 2557, 1270, 2557, 1589, 938, 1572)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Polygon2D" unique_id=258114661]
+physics_material_override = SubResource("PhysicsMaterial_ihsmp")
+constant_linear_velocity = Vector2(300, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Polygon2D/StaticBody2D2" unique_id=593063425]
+position = Vector2(-3.8188477, 0)
+scale = Vector2(0.9991927, 1)
+polygon = PackedVector2Array(-3606, 1270, 955.59, 1270, 939.57715, 1565.9999, -3639, 1581.5)
+
+[node name="EndWolfden" type="Sprite2D" parent="." unique_id=884543244]
+position = Vector2(5796, -173)
+texture = ExtResource("3_jscah")
+
+[node name="LeafPoop" type="Sprite2D" parent="." unique_id=1512637813]
+position = Vector2(4018, 220.5)
+texture = ExtResource("4_tftkq")
+
+[node name="MinePoop" type="Sprite2D" parent="." unique_id=261160713]
+position = Vector2(5426, 288)
+texture = ExtResource("5_y3on5")
+
+[node name="MineExploded" type="Sprite2D" parent="." unique_id=1967272811]
+position = Vector2(5072, 485)
+texture = ExtResource("6_s0snq")
+
+[node name="LeaftPoop3" type="Sprite2D" parent="." unique_id=1238669709]
+position = Vector2(4339, -699.5)
+texture = ExtResource("7_mkrd6")
+
+[node name="LeafPoop2" type="Sprite2D" parent="." unique_id=1479070476]
+position = Vector2(5984, -696.5)
+texture = ExtResource("4_tftkq")
+
+[node name="LeafPoop3" type="Sprite2D" parent="." unique_id=1491610787]
+position = Vector2(5264, -566.5)
+texture = ExtResource("8_wdygd")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=628845195]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1704448132]
+position = Vector2(4725, -96)
+rotation = 1.5707964
+scale = Vector2(7, 7)
+shape = SubResource("CapsuleShape2D_ihsmp")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2019494544]
+position = Vector2(4953, -405)
+physics_material_override = SubResource("PhysicsMaterial_jscah")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1594196444]
+position = Vector2(46.566406, 270)
+scale = Vector2(1, 300)
+shape = SubResource("RectangleShape2D_tftkq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=647107352]
+
+[node name="DialogBox" parent="CanvasLayer" unique_id=644605369 instance=ExtResource("9_ihsmp")]
+visible = false
+top_level = true

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://0iofmjml0xkn"]
+
+[ext_resource type="Script" uid="uid://bggu2jek7w37o" path="res://Scripts/LongSoundPlayer.cs" id="1_f3woi"]
+[ext_resource type="AudioStream" uid="uid://b5aejq11man0q" path="res://sfx/Fart-Long2.mp3" id="2_lxc5j"]
+[ext_resource type="AudioStream" uid="uid://86x54v3qmoe6" path="res://sfx/Fart-4.mp3" id="3_3h3ir"]
+[ext_resource type="AudioStream" uid="uid://ddl3wkqpgktq2" path="res://sfx/Fart-5.mp3" id="4_u6w4k"]
+[ext_resource type="AudioStream" uid="uid://b225nwyo6gc6c" path="res://sfx/Fart-7.mp3" id="5_vbo4e"]
+[ext_resource type="AudioStream" uid="uid://bmx4gsnxfded6" path="res://sfx/Fart-8.mp3" id="6_5jl38"]
+[ext_resource type="AudioStream" uid="uid://c3rbhuceb7n07" path="res://sfx/Fart-proud3.mp3" id="7_sfwcr"]
+
+[node name="LongSoundPlayer" type="Node2D" unique_id=2039511004 node_paths=PackedStringArray("MainPlayer", "SubPlayer")]
+script = ExtResource("1_f3woi")
+PlayStart = 0.4
+PlayStop = 0.9
+RandomSubSoundTime = 2.0
+MainPlayer = NodePath("MainPlayer")
+SubPlayer = NodePath("SubPlayer")
+MainSound = ExtResource("2_lxc5j")
+SubSounds = [ExtResource("3_3h3ir"), ExtResource("4_u6w4k"), ExtResource("5_vbo4e"), ExtResource("6_5jl38"), ExtResource("7_sfwcr")]
+
+[node name="MainPlayer" type="AudioStreamPlayer" parent="." unique_id=232019086]
+
+[node name="SubPlayer" type="AudioStreamPlayer" parent="." unique_id=36181484]

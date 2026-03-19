@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://dmxq6gqgv35ci"]
+
+[ext_resource type="PackedScene" uid="uid://bh2samdxjn57k" path="res://Scenes/SlideScene.tscn" id="1_3463w"]
+[ext_resource type="Script" uid="uid://5ww1e3pjt4sn" path="res://Scripts/MainLoop.cs" id="1_pbmyu"]
+[ext_resource type="PackedScene" uid="uid://cxewdl4g8e868" path="res://Scenes/StartCliffScene.tscn" id="2_pbmyu"]
+[ext_resource type="Texture2D" uid="uid://taqx6ivtww52" path="res://Textures/Background_fhd.png" id="3_tbmyg"]
+[ext_resource type="PackedScene" uid="uid://bflppxr1ipcve" path="res://Scenes/EndRavineScene.tscn" id="4_tbmyg"]
+[ext_resource type="Script" uid="uid://djld17dieef2i" path="res://Scripts/Universal/CameraMoveScript.cs" id="7_jpila"]
+[ext_resource type="Script" uid="uid://c2vupssqs5fa4" path="res://Scripts/Menu/MenuManager.cs" id="7_vksp7"]
+[ext_resource type="PackedScene" uid="uid://dkwvp5thsx0c5" path="res://Actors/Dialog/main_menu.tscn" id="8_ajeaf"]
+[ext_resource type="PackedScene" uid="uid://ddksvpw4qece4" path="res://Actors/Dialog/dialog_box.tscn" id="9_0cld1"]
+[ext_resource type="PackedScene" uid="uid://26raw5uqm8lx" path="res://Actors/Dialog/restart_menu.tscn" id="10_iqxxl"]
+[ext_resource type="PackedScene" uid="uid://bx1h1xv2xyddq" path="res://Actors/Dialog/options_menu.tscn" id="11_ajeaf"]
+[ext_resource type="PackedScene" uid="uid://chb83iii6mufk" path="res://Actors/Dialog/overlay.tscn" id="12_0cld1"]
+
+[node name="MainLoop" type="Node2D" unique_id=682202851 node_paths=PackedStringArray("IntroScript", "SlideScene", "EndRavineScene", "MenuStartCamera", "MenuManager")]
+script = ExtResource("1_pbmyu")
+IntroScript = NodePath("Start_Cliff")
+SlideScene = NodePath("SlideScene")
+EndRavineScene = NodePath("EndRavineScene")
+MenuStartCamera = NodePath("Camera2D")
+MenuManager = NodePath("MenusLayer/MenuManager")
+
+[node name="Start_Cliff" parent="." unique_id=1025713442 instance=ExtResource("2_pbmyu")]
+
+[node name="SlideScene" parent="." unique_id=1809889371 node_paths=PackedStringArray("OverlayMenu", "BearLaunchPoint", "SlideStartingPoint") instance=ExtResource("1_3463w")]
+OverlayMenu = NodePath("../MenusLayer/MenuManager/Overlay")
+BearLaunchPoint = NodePath("../BearLaunchPoint")
+SlideStartingPoint = NodePath("../SlideStartingPoint")
+Startingimpulse = Vector2(2000, -1400)
+
+[node name="EndRavineScene" parent="." unique_id=1858544834 instance=ExtResource("4_tbmyg")]
+position = Vector2(-33087, 228)
+
+[node name="Background" type="CanvasLayer" parent="." unique_id=1599058641]
+layer = -10
+
+[node name="TextureRect" type="TextureRect" parent="Background" unique_id=1772462409]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_tbmyg")
+stretch_mode = 3
+
+[node name="BearLaunchPoint" type="Node2D" parent="." unique_id=1498537943]
+position = Vector2(1645, -24)
+
+[node name="SlideStartingPoint" type="Node2D" parent="." unique_id=1787075431]
+position = Vector2(1386, 2415)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1564517896]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(0, -1800)
+zoom = Vector2(0.5, 0.5)
+editor_draw_screen = false
+script = ExtResource("7_jpila")
+
+[node name="MenusLayer" type="CanvasLayer" parent="." unique_id=1062953307]
+layer = 6
+
+[node name="MenuManager" type="Control" parent="MenusLayer" unique_id=2115598223 node_paths=PackedStringArray("MainMenu", "RestartMenu", "DialogMenu", "OptionsMenu", "OverlayMenu")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("7_vksp7")
+MainMenu = NodePath("MainMenu")
+RestartMenu = NodePath("RestartMenu")
+DialogMenu = NodePath("DialogBox")
+OptionsMenu = NodePath("OptionsMenu")
+OverlayMenu = NodePath("Overlay")
+
+[node name="MainMenu" parent="MenusLayer/MenuManager" unique_id=836493818 instance=ExtResource("8_ajeaf")]
+clip_contents = true
+layout_mode = 1
+offset_right = -40.0
+offset_bottom = -40.0
+
+[node name="DialogBox" parent="MenusLayer/MenuManager" unique_id=644605369 instance=ExtResource("9_0cld1")]
+visible = false
+layout_mode = 1
+offset_right = -40.0
+offset_bottom = -40.0
+AlphaStep = 20
+
+[node name="RestartMenu" parent="MenusLayer/MenuManager" unique_id=230804995 instance=ExtResource("10_iqxxl")]
+visible = false
+layout_mode = 1
+offset_right = -40.0
+offset_bottom = -40.0
+
+[node name="OptionsMenu" parent="MenusLayer/MenuManager" unique_id=1851606267 instance=ExtResource("11_ajeaf")]
+visible = false
+layout_mode = 1
+
+[node name="Overlay" parent="MenusLayer/MenuManager" unique_id=497598570 instance=ExtResource("12_0cld1")]
+visible = false
+layout_mode = 1
+
+[connection signal="OptionsButtonClicked" from="MenusLayer/MenuManager/MainMenu" to="MenusLayer/MenuManager" method="_on_main_menu_options_button_clicked"]
+[connection signal="StartButtonClicked" from="MenusLayer/MenuManager/MainMenu" to="." method="_on_main_menu_start_button_clicked"]
+[connection signal="RestartClicked" from="MenusLayer/MenuManager/RestartMenu" to="." method="_on_restart_menu_restart_clicked"]
+[connection signal="OptionsButtonCloseClicked" from="MenusLayer/MenuManager/OptionsMenu" to="MenusLayer/MenuManager" method="_on_options_menu_options_button_close_clicked"]

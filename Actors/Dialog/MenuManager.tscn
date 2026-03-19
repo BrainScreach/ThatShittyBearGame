@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://da3ybi616nuur"]
+
+[ext_resource type="Script" uid="uid://c2vupssqs5fa4" path="res://Scripts/Menu/MenuManager.cs" id="1_w0hu5"]
+[ext_resource type="PackedScene" uid="uid://dkwvp5thsx0c5" path="res://Actors/Dialog/main_menu.tscn" id="2_w0g1l"]
+[ext_resource type="PackedScene" uid="uid://26raw5uqm8lx" path="res://Actors/Dialog/restart_menu.tscn" id="3_ecxov"]
+[ext_resource type="PackedScene" uid="uid://ddksvpw4qece4" path="res://Actors/Dialog/dialog_box.tscn" id="4_w0g1l"]
+
+[node name="MenuManager" type="Control" unique_id=1089749848 node_paths=PackedStringArray("MainMenu", "RestartMenu", "DialogMenu")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w0hu5")
+MainMenu = NodePath("MainMenu")
+RestartMenu = NodePath("RestartMenu")
+DialogMenu = NodePath("DialogBox")
+
+[node name="MainMenu" parent="." unique_id=836493818 instance=ExtResource("2_w0g1l")]
+layout_mode = 1
+
+[node name="RestartMenu" parent="." unique_id=230804995 instance=ExtResource("3_ecxov")]
+layout_mode = 1
+
+[node name="DialogBox" parent="." unique_id=644605369 instance=ExtResource("4_w0g1l")]
+layout_mode = 1

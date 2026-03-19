@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="DialogTable" format=3 uid="uid://d0lbo0wv1oay0"]
+
+[ext_resource type="Script" uid="uid://cc2i2t000a7xu" path="res://ResourceCode/DialogTable.cs" id="1_7a4e2"]
+[ext_resource type="Script" uid="uid://4ncnkg1dhwio" path="res://ResourceCode/DialogLine.cs" id="1_jod46"]
+
+[sub_resource type="Resource" id="Resource_jod46"]
+script = ExtResource("1_jod46")
+Actor = "DiaperWolf"
+ActorName = "Diaper Wolf"
+Line = "Everything is covered in shit! I hope you are proud of yourself, you dirty asshole!"
+metadata/_custom_type_script = "uid://4ncnkg1dhwio"
+
+[sub_resource type="Resource" id="Resource_8m38k"]
+script = ExtResource("1_jod46")
+Actor = "DiaperWolf"
+ActorName = "Diaper Wolf"
+Line = "If bear will start throwing poop at other creatures and then those creatures will join his poop-army, do you think Nintendo will sue?
+... Stupid question really. My very existence is reason for Nintendo to sue."
+metadata/_custom_type_script = "uid://4ncnkg1dhwio"
+
+[sub_resource type="Resource" id="Resource_hv8dn"]
+script = ExtResource("1_jod46")
+Actor = "DiaperWolf"
+ActorName = "Diaper Wolf"
+Line = "The forest smells much more lately. What have you been eating?"
+metadata/_custom_type_script = "uid://4ncnkg1dhwio"
+
+[resource]
+script = ExtResource("1_7a4e2")
+Dialogs = Array[ExtResource("1_jod46")]([SubResource("Resource_jod46"), SubResource("Resource_8m38k"), SubResource("Resource_hv8dn")])

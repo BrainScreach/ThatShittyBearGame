@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bwqr4jqy7v7mh"]
+
+[ext_resource type="Script" uid="uid://hvwdc6d54jk2" path="res://Scripts/LandSlideGenerator.cs" id="1_5oi7h"]
+[ext_resource type="PackedScene" uid="uid://d0ulfq7r6y3w2" path="res://Actors/mine.tscn" id="2_x3axp"]
+[ext_resource type="PackedScene" uid="uid://pg1nfn744tgf" path="res://Actors/Enemy/enemy_hedgehog.tscn" id="3_066wd"]
+
+[node name="LandSlideGenerator" type="Node2D" unique_id=1800338141]
+script = ExtResource("1_5oi7h")
+MineNode = ExtResource("2_x3axp")
+EnemyNode = ExtResource("3_066wd")
+LandColor = Color(1.1792034e-06, 0.57079893, 5.7756904e-07, 0)
+Width = 1000.0
+WidthOscilation = 100.0
+Height = 300.0
+HeightOscilation = 50.0

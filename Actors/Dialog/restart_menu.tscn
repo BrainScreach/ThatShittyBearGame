@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://26raw5uqm8lx"]
+
+[ext_resource type="Script" uid="uid://b2lnxo7s4r2fd" path="res://Scripts/Menu/RestartMenu.cs" id="1_hvabn"]
+[ext_resource type="Texture2D" uid="uid://cwx1u1dqcn7ho" path="res://Textures/RestartTexture.png" id="1_ws4jt"]
+
+[node name="RestartMenu" type="Control" unique_id=230804995]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hvabn")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1767738263]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer" unique_id=1462241560]
+layout_mode = 2
+texture_normal = ExtResource("1_ws4jt")
+
+[connection signal="pressed" from="MarginContainer/TextureButton" to="." method="_on_texture_button_pressed"]

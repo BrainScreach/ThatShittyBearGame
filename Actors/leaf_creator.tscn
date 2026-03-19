@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b3xqgdv55rjgo"]
+
+[ext_resource type="Script" uid="uid://yy5ks75jscvf" path="res://Scripts/CreatorNodes/EntitiesCreator.cs" id="1_ry8j7"]
+[ext_resource type="PackedScene" uid="uid://cu26mer61sgai" path="res://Actors/leaf_particle.tscn" id="2_uwdn6"]
+
+[node name="LeafCreator" type="Node2D" unique_id=1051420122 node_paths=PackedStringArray("CreationTimer")]
+script = ExtResource("1_ry8j7")
+ToCreate = [ExtResource("2_uwdn6"), null]
+CreationTimer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="." unique_id=1791288873]
+autostart = true
