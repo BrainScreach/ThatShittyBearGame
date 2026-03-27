@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dmxq6gqgv35ci"]
 
 [ext_resource type="PackedScene" uid="uid://bh2samdxjn57k" path="res://Scenes/SlideScene.tscn" id="1_3463w"]
-[ext_resource type="Script" uid="uid://5ww1e3pjt4sn" path="res://Scripts/MainLoop.cs" id="1_pbmyu"]
+[ext_resource type="Script" uid="uid://bkisou28smj2a" path="res://Scripts/Scenes/MainLoop.cs" id="1_kdria"]
 [ext_resource type="PackedScene" uid="uid://cxewdl4g8e868" path="res://Scenes/StartCliffScene.tscn" id="2_pbmyu"]
 [ext_resource type="Texture2D" uid="uid://taqx6ivtww52" path="res://Textures/Background_fhd.png" id="3_tbmyg"]
 [ext_resource type="PackedScene" uid="uid://bflppxr1ipcve" path="res://Scenes/EndRavineScene.tscn" id="4_tbmyg"]
@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://chb83iii6mufk" path="res://Actors/Dialog/overlay.tscn" id="12_0cld1"]
 
 [node name="MainLoop" type="Node2D" unique_id=682202851 node_paths=PackedStringArray("IntroScript", "SlideScene", "EndRavineScene", "MenuStartCamera", "MenuManager")]
-script = ExtResource("1_pbmyu")
+script = ExtResource("1_kdria")
 IntroScript = NodePath("Start_Cliff")
 SlideScene = NodePath("SlideScene")
 EndRavineScene = NodePath("EndRavineScene")
@@ -28,6 +28,12 @@ OverlayMenu = NodePath("../MenusLayer/MenuManager/Overlay")
 BearLaunchPoint = NodePath("../BearLaunchPoint")
 SlideStartingPoint = NodePath("../SlideStartingPoint")
 Startingimpulse = Vector2(2000, -1400)
+
+[node name="PlayerController" parent="SlideScene" index="6" unique_id=1912973690 node_paths=PackedStringArray("ShitMeasure")]
+ShitMeasure = NodePath("../../MenusLayer/MenuManager/Overlay")
+ShitParticleGeneration = 0.15
+ShitPerSecond = 10.0
+RechargeSpeed = 80.0
 
 [node name="EndRavineScene" parent="." unique_id=1858544834 instance=ExtResource("4_tbmyg")]
 position = Vector2(-33087, 228)
@@ -109,3 +115,5 @@ layout_mode = 1
 [connection signal="StartButtonClicked" from="MenusLayer/MenuManager/MainMenu" to="." method="_on_main_menu_start_button_clicked"]
 [connection signal="RestartClicked" from="MenusLayer/MenuManager/RestartMenu" to="." method="_on_restart_menu_restart_clicked"]
 [connection signal="OptionsButtonCloseClicked" from="MenusLayer/MenuManager/OptionsMenu" to="MenusLayer/MenuManager" method="_on_options_menu_options_button_close_clicked"]
+
+[editable path="SlideScene"]

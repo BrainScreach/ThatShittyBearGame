@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c5cflrr8aola0"]
+
+[ext_resource type="Script" uid="uid://u5igmo8yox0r" path="res://Scripts/StainGenerator.cs" id="1_vx11c"]
+
+[node name="StainGenerator" type="Node" unique_id=2111551679]
+script = ExtResource("1_vx11c")

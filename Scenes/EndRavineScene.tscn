@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bflppxr1ipcve"]
 
-[ext_resource type="Script" uid="uid://el0ycpvm38ot" path="res://Scripts/EndRavineScene.cs" id="1_xpfra"]
+[ext_resource type="Script" uid="uid://c1kglsr2o5uy8" path="res://Scripts/Scenes/EndRavineScene.cs" id="1_ihsmp"]
 [ext_resource type="Texture2D" uid="uid://dg12mlq47yjac" path="res://Textures/EndRavine/EndTreeesBackground.png" id="2_ihsmp"]
 [ext_resource type="Texture2D" uid="uid://ct35ie8lsjioj" path="res://Textures/EndRavine/End_wolfden.png" id="3_jscah"]
 [ext_resource type="Texture2D" uid="uid://dok5fdw5ceqw2" path="res://Textures/leaf_poop.png" id="4_tftkq"]
@@ -34,7 +34,7 @@ size = Vector2(17.133, 1000)
 
 [node name="EndRavineScene" type="Node2D" unique_id=1858544834 node_paths=PackedStringArray("ActorEnteredArea", "DialogBox")]
 z_index = -4
-script = ExtResource("1_xpfra")
+script = ExtResource("1_ihsmp")
 ActorEnteredArea = NodePath("Area2D")
 DialogBox = NodePath("CanvasLayer/DialogBox")
 

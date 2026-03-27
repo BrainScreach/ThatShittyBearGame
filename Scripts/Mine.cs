@@ -28,7 +28,7 @@ public partial class Mine : Node2D
     {
         if(body is BearRigidBody rigidBody)
         {
-            Area.SetDeferred(nameof(Area.Monitoring), false);
+            Area.SetDeferred(Area2D.PropertyName.Monitoring, false);
             rigidBody.ApplyImpulse(new Vector2(_force * 0.5F, -1.5F * _force));
             AnimatedSprite.Play("exploded");
             StreamSound.Play(0.3f);

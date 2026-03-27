@@ -15,7 +15,7 @@ public partial class TriggerSoundNode : Area2D
 
     public void _on_area_entered(Node2D node)
     {
-        this.SetDeferred(nameof(Monitoring), false);
+        this.SetDeferred(Area2D.PropertyName.Monitoring, false);
         SoundPlayer.Play();
     }
 }

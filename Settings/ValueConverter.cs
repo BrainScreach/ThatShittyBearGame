@@ -9,7 +9,7 @@ namespace ThatShittyBearGame.Settings
     public static class ValueConverter
     {
         private const int PAPER_LENGTH_METER = 52;
-        private const int PIXETL_IN_METER = 200;
+        private const int PIXETL_IN_METER = 50;
 
         public static float ConvertFromToiletPaper(float value)
         {

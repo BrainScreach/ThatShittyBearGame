@@ -42,6 +42,7 @@ Poop={
 2d_physics/layer_3="Player"
 2d_physics/layer_7="Enemies"
 2d_physics/layer_8="Mines"
+2d_physics/layer_10="strains"
 
 [physics]
 

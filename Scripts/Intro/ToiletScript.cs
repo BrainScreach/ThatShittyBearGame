@@ -73,7 +73,7 @@ public partial class ToiletScript : Node2D, IScriptActor
     public void StartActorScript(string scriptName, Action scriptEndCallback)
     {
         _scriptEndCallback = scriptEndCallback;
-        NodeHelper.GetNodeByType<Area2D>(this).SetDeferred(nameof(Area2D.Monitorable), false);
+        NodeHelper.GetNodeByType<Area2D>(this).SetDeferred(Area2D.PropertyName.Monitorable, false);
         InProgress = true;
     }
 }

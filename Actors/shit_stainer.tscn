@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bvx7n77ii4ned"]
+
+[ext_resource type="Script" uid="uid://crbr7w3o54j64" path="res://Scripts/ShitStainer.cs" id="1_fdqa4"]
+[ext_resource type="Texture2D" uid="uid://kyp61qmmfitr" path="res://Textures/X_icon.png" id="2_bxdax"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bxdax"]
+radius = 20.396078
+
+[node name="ShitStainer" type="Area2D" unique_id=147987778]
+collision_layer = 512
+collision_mask = 193
+input_pickable = false
+script = ExtResource("1_fdqa4")
+Velocity = 5000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=349548052]
+shape = SubResource("CircleShape2D_bxdax")
+
+[node name="Timer" type="Timer" parent="." unique_id=76482631]
+one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=226362550]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_bxdax")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

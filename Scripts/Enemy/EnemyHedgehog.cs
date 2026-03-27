@@ -17,9 +17,9 @@ public partial class EnemyHedgehog : RigidBody2D, IEnemy
     public void _on_body_entered(Node body)
     {        
         var area = NodeHelper.GetNodeByType<Area2D>(this);
-        area.SetDeferred(nameof(Area2D.Monitoring), false);
-        area.SetDeferred(nameof(Area2D.Monitorable), false);
-        this.SetDeferred(nameof(RigidBody2D.Freeze), false);
+        area.SetDeferred(Area2D.PropertyName.Monitoring, false);
+        area.SetDeferred(Area2D.PropertyName.Monitorable, false);
+        this.SetDeferred(RigidBody2D.PropertyName.Freeze, false);
         Sound.Play();
         Sprite.Play("dead");
         _state = State.Dying;

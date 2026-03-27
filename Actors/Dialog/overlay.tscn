@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://byhcko2d4pyuu" path="res://Scripts/Menu/OverlayMenu.cs" id="1_ok5jv"]
 [ext_resource type="PackedScene" uid="uid://br5g7urjtyspa" path="res://Actors/Dialog/distance_measure_control.tscn" id="2_8ejpb"]
+[ext_resource type="PackedScene" uid="uid://fm4pjpts0sqb" path="res://Actors/Dialog/shit_measure_control.tscn" id="3_pqpnf"]
 
-[node name="Overlay" type="Control" unique_id=497598570 node_paths=PackedStringArray("DistanceMeasure")]
+[node name="Overlay" type="Control" unique_id=497598570 node_paths=PackedStringArray("DistanceMeasure", "ShitMeasure")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ok5jv")
 DistanceMeasure = NodePath("MarginContainer/DistanceMeasureControl")
+ShitMeasure = NodePath("MarginContainer2/ShitMeasureControl")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2086971674]
 layout_mode = 1
@@ -27,4 +29,24 @@ theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
 [node name="DistanceMeasureControl" parent="MarginContainer" unique_id=486747278 instance=ExtResource("2_8ejpb")]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=426597894]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="ShitMeasureControl" parent="MarginContainer2" unique_id=824625381 instance=ExtResource("3_pqpnf")]
 layout_mode = 2

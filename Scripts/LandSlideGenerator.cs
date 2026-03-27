@@ -11,6 +11,8 @@ public partial class LandSlideGenerator : Node2D
     public PackedScene MineNode { get; set; }
     [Export]
     public PackedScene EnemyNode { get; set; }
+    [Export]
+    public Parallax2D Parallaxw { get; set; }
 
     [Export]
     public Color LandColor { get; set; }
@@ -26,6 +28,9 @@ public partial class LandSlideGenerator : Node2D
     public float Height { get; set; }
     [Export]
     public float HeightOscilation { get; set; }
+
+    [Export]
+    public float TextureBodyHeightDelta { get; set; } = 40;
 
     private Vector2 _lastPoint;
     public Vector2 LastPoint => _lastPoint;
@@ -122,6 +127,7 @@ public partial class LandSlideGenerator : Node2D
         var shape = new ConvexPolygonShape2D();
         shape.Points = vectors;
         collisionShape.Shape = shape;
+        collisionShape.MoveLocalY(TextureBodyHeightDelta);
         body.AddChild(collisionShape);
         return body;
     }

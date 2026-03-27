@@ -1,16 +1,23 @@
 [gd_scene format=3 uid="uid://bh2samdxjn57k"]
 
-[ext_resource type="Script" uid="uid://dw1sdpch4jpxc" path="res://Scripts/SlideScene.cs" id="1_40i2k"]
+[ext_resource type="Script" uid="uid://b2pcjr4js4x2x" path="res://Scripts/Scenes/SlideScene.cs" id="1_dp51b"]
 [ext_resource type="PackedScene" uid="uid://cu26mer61sgai" path="res://Actors/leaf_particle.tscn" id="2_nscee"]
-[ext_resource type="PackedScene" uid="uid://d0ulfq7r6y3w2" path="res://Actors/mine.tscn" id="3_8bx6d"]
 [ext_resource type="PackedScene" uid="uid://betxaynsrbl22" path="res://Actors/player_bear.tscn" id="4_dp51b"]
 [ext_resource type="PackedScene" uid="uid://b3xqgdv55rjgo" path="res://Actors/leaf_creator.tscn" id="4_fiyds"]
+[ext_resource type="PackedScene" uid="uid://bvx7n77ii4ned" path="res://Actors/shit_stainer.tscn" id="5_7ll0o"]
 [ext_resource type="PackedScene" uid="uid://bwqr4jqy7v7mh" path="res://Actors/land_slide_generator.tscn" id="5_s6ovx"]
+[ext_resource type="PackedScene" uid="uid://5yfqlqmq85vj" path="res://Actors/player_controller.tscn" id="7_dp51b"]
+[ext_resource type="PackedScene" uid="uid://c5cflrr8aola0" path="res://Actors/stain_generator.tscn" id="9_n184q"]
+[ext_resource type="Texture2D" uid="uid://g2v4m208de47" path="res://Textures/Stain/stain_1.png" id="10_fjxrl"]
+[ext_resource type="Texture2D" uid="uid://ci3lsarbxlgvs" path="res://Textures/Stain/stain_2.png" id="11_i3kw1"]
 [ext_resource type="Texture2D" uid="uid://g7sn3ntk63dj" path="res://Textures/Forest_Background2.png" id="23_vter3"]
 
 [node name="SlideScene" type="Node2D" unique_id=1809889371 node_paths=PackedStringArray("MainBearNode")]
-script = ExtResource("1_40i2k")
+script = ExtResource("1_dp51b")
 MainBearNode = NodePath("PlayerBear")
+
+[node name="ShitStainLayer" type="Node2D" parent="." unique_id=809597113]
+z_index = 3
 
 [node name="LeafCreator" parent="." unique_id=1051420122 node_paths=PackedStringArray("Camera") instance=ExtResource("4_fiyds")]
 position = Vector2(-463.11383, 179.10468)
@@ -21,9 +28,13 @@ TimerMin = 0.2
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=664346646]
 ignore_rotation = false
+zoom = Vector2(0.75, 0.75)
 
-[node name="PlayerBear" parent="." unique_id=29795920 instance=ExtResource("4_dp51b")]
+[node name="PlayerBear" parent="." unique_id=29795920 node_paths=PackedStringArray("ShitStainLayer", "StainGenerator") instance=ExtResource("4_dp51b")]
 visible = false
+ShitStainLayer = NodePath("../ShitStainLayer")
+ShitStainer = ExtResource("5_7ll0o")
+StainGenerator = NodePath("../StainGenerator")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayerBear" unique_id=690825054]
 remote_path = NodePath("../../Camera2D")
@@ -34,7 +45,6 @@ light_mask = 16
 visibility_layer = 16
 z_index = -2
 Camera = NodePath("../Camera2D")
-GenerateNode = ExtResource("3_8bx6d")
 LandColor = Color(0.2422184, 0.48543394, 0.125382, 1)
 LandColor2 = Color(0.2965339, 0.37823108, 0.14563122, 1)
 Width = 3000.0
@@ -45,9 +55,16 @@ HeightOscilation = 700.0
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=497993351]
 z_index = -9
 scroll_scale = Vector2(0.3, 0)
-scroll_offset = Vector2(0, 1000)
-repeat_size = Vector2(1920, 0)
-limit_begin = Vector2(0, 0)
+scroll_offset = Vector2(0, 1440)
+repeat_size = Vector2(9000, 0)
+limit_begin = Vector2(-1000, -10000000)
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1075300975]
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=765069553]
 texture = ExtResource("23_vter3")
+
+[node name="PlayerController" parent="." unique_id=1912973690 node_paths=PackedStringArray("MainPlayer") instance=ExtResource("7_dp51b")]
+MainPlayer = NodePath("../PlayerBear")
+ShitForce = 20000.0
+
+[node name="StainGenerator" parent="." unique_id=2111551679 instance=ExtResource("9_n184q")]
+Textures = [ExtResource("10_fjxrl"), ExtResource("11_i3kw1")]

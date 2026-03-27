@@ -16,15 +16,16 @@
 [ext_resource type="AudioStream" uid="uid://dngnn5xq3kt4e" path="res://sfx/Fart-11.mp3" id="14_305eh"]
 [ext_resource type="AudioStream" uid="uid://procnv71rqib" path="res://sfx/Fart-12.mp3" id="15_jemm4"]
 [ext_resource type="AudioStream" uid="uid://cy66xan2mk4s3" path="res://sfx/Fart-long3.mp3" id="16_yapty"]
-[ext_resource type="PackedScene" uid="uid://b346sxci23bj5" path="res://Actors/exaust.tscn" id="17_bdih8"]
+[ext_resource type="PackedScene" uid="uid://b346sxci23bj5" path="res://Actors/exhaust.tscn" id="17_bdih8"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b2nyb"]
 friction = 0.6
 bounce = 0.3
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vjg3u"]
+radius = 12.877427
 
-[node name="PlayerBear" type="RigidBody2D" unique_id=29795920 node_paths=PackedStringArray("SpriteNode")]
+[node name="PlayerBear" type="RigidBody2D" unique_id=29795920 node_paths=PackedStringArray("SpriteNode", "ShitSound", "Exhaust")]
 collision_layer = 4
 collision_mask = 193
 mass = 20.0
@@ -32,12 +33,14 @@ physics_material_override = SubResource("PhysicsMaterial_b2nyb")
 gravity_scale = 2.0
 script = ExtResource("1_b2nyb")
 SpriteNode = NodePath("Node/Bear")
+ShitSound = NodePath("ShitSoundPlayer")
+Exhaust = NodePath("Node/Bear/Exaust")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=527625548]
 scale = Vector2(8, 8)
 shape = SubResource("CircleShape2D_vjg3u")
 
-[node name="LongSoundPlayer" parent="." unique_id=2039511004 instance=ExtResource("3_8s1yk")]
+[node name="ShitSoundPlayer" parent="." unique_id=2039511004 instance=ExtResource("3_8s1yk")]
 SubSounds = [ExtResource("4_1rlh3"), ExtResource("5_thim4"), ExtResource("6_godeg"), ExtResource("7_pe0s7"), ExtResource("8_ggba4"), ExtResource("9_txd5q"), ExtResource("10_b4wtj"), ExtResource("11_kikt1"), ExtResource("12_5kr6n"), ExtResource("13_qfogl"), ExtResource("14_305eh"), ExtResource("15_jemm4"), ExtResource("16_yapty")]
 
 [node name="SpriteTransform" type="RemoteTransform2D" parent="." unique_id=983037555]
@@ -47,11 +50,11 @@ update_rotation = false
 [node name="Node" type="Node" parent="." unique_id=1143415127]
 
 [node name="Bear" type="Sprite2D" parent="Node" unique_id=1162910715]
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_mj733")
 
-[node name="Exaust" parent="Node/Bear" unique_id=1678234877 node_paths=PackedStringArray("Sound") instance=ExtResource("17_bdih8")]
+[node name="Exaust" parent="Node/Bear" unique_id=1678234877 instance=ExtResource("17_bdih8")]
 z_index = -1
 position = Vector2(116.54078, 61.28424)
-Sound = NodePath("../../../LongSoundPlayer")
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

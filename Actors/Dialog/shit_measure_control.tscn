@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://fm4pjpts0sqb"]
+
+[ext_resource type="Texture2D" uid="uid://b3qdykeffkvp6" path="res://Textures/Menus/shit_meter_main.png" id="1_361pt"]
+[ext_resource type="Texture2D" uid="uid://culw4f3oy7y5e" path="res://Textures/Menus/shit_meter.png" id="2_e5slm"]
+[ext_resource type="Script" uid="uid://bru4ts7vna16s" path="res://Scripts/Menu/ShitMeasureControl.cs" id="2_ksjag"]
+
+[sub_resource type="Theme" id="Theme_e5slm"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 32
+
+[node name="ShitMeasureControl" type="TextureRect" unique_id=824625381 node_paths=PackedStringArray("QuantityLabel", "ShitMeter")]
+offset_right = 80.0
+offset_bottom = 317.0
+texture = ExtResource("1_361pt")
+script = ExtResource("2_ksjag")
+QuantityLabel = NodePath("ShitLabel")
+ShitMeter = NodePath("Panel/TextureRect")
+MaxOffset = 250.0
+
+[node name="ShitLabel" type="Label" parent="." unique_id=816471527]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 263.0
+offset_right = 69.0
+offset_bottom = 308.0
+theme = SubResource("Theme_e5slm")
+text = "60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="." unique_id=1953040838]
+z_index = -1
+clip_contents = true
+layout_mode = 0
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 74.0
+offset_bottom = 280.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel" unique_id=1926400220]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 332.0
+texture = ExtResource("2_e5slm")

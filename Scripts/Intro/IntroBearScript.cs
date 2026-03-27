@@ -16,7 +16,7 @@ public partial class IntroBearScript : Area2D, IScriptActor
         if(node.Name == "ToiletArea")
         {
             this.Visible = false;
-            this.SetDeferred(nameof(Area2D.Monitoring), false);
+            this.SetDeferred(Area2D.PropertyName.Monitoring, false);
             InProgress = false;
             _scriptEndCallback.Invoke();
         }
